@@ -14,12 +14,10 @@ const showsArray = [
 const channelsArray = ["#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9"];
 
 changeChannel = channel => {
-  $(channel).on({
-    hover: function() {
-      $("#channel_img").attr(
-        "src",
-        `./img/${showsArray[channelsArray.indexOf(channel)]}`
-      );
-    }
-  });
+  $(channel).mouseover(
+    $("#channel_img").attr(
+      "src",
+      `./img/${showsArray[channelsArray.indexOf(channel)]}`
+    )
+  );
 };
