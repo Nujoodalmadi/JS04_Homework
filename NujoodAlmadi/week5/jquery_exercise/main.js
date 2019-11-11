@@ -14,17 +14,23 @@ You'll add the ability to complete tasks in your favorite things list:
 $("span").click(function() {
   alert("Handler for .click() called.");
 });
+$(".fav-thing").append(`<span class="complete-task"> complete task</span>`);
+completeTask();
+
+function completeTask() {
+  $(".complete-task").on("click", function() {
+    $(this)
+      .parent()
+      .css("text-decoration", "line-through");
+  });
+}
 
 function addToList($list, thing) {
   var $thingLi = $("<li>");
   $thingLi.text(thing);
   $list.append($thingLi);
-  $thingLi.append(`<span id='${thing}'> complete task</span>`);
-  $(`#${thing}`).on("click", function() {
-    $(`#${thing}`)
-      .parent()
-      .css("text-decoration", "line-through");
-  });
+  $thingLi.append(`<span class="complete-task"> complete task</span>`);
+  completeTask();
 }
 
 var $thingList = $("#fav-list");
