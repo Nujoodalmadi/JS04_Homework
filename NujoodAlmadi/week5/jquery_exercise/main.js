@@ -21,7 +21,9 @@ function addToList($list, thing) {
   $list.append($thingLi);
   $thingLi.append(`<span id='${thing}'> complete task</span>`);
   $(`#${thing}`).on("click", function() {
-    $(`#${thing}`).css("text-decoration", "line-through");
+    $(`#${thing}`)
+      .parent()
+      .css("text-decoration", "line-through");
   });
 }
 
