@@ -17,6 +17,9 @@ $("#weatherForm").submit(function(e) {
   function toFahrenheit(kelvin) {
     return (kelvin * 9) / 5 - 459.67;
   }
+  function toCelsius(kelvin) {
+    return kelvin - 273.15;
+  }
   return $.ajax({
     url: weatherUrl,
     type: "GET",
@@ -31,7 +34,9 @@ $("#weatherForm").submit(function(e) {
           data.main.temp +
           " kelvin = " +
           toFahrenheit(data.main.temp).toFixed(1) +
-          " fahrenheit"
+          " fahrenheit = " +
+          toCelsius(data.main.temp).toFixed(1) +
+          " celsius"
       );
       $("#city").val("");
     },
